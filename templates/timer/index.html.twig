@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TimerController!{% endblock %}
+
+{% block body %}
+
+<div id="timerEvent"></div>
+
+<script>
+var countDown = new Date("sept 2, 2024 00:00:00").getTime();
+var update = setInterval(function(){
+
+    // get la date d'aujourd'hui
+    var now = new Date().getTime()
+    // console.log(now + " maintenant")
+
+    // get la différence entre les deux dates
+    var diff = countDown - now
+    // console.log(diff + " différence")
+
+    // calcule des heures minutes secondes etc
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // mettre l'élément dans la div
+    document.getElementById("timerEvent").innerHTML = days + " : " + hrs + " : " + minutes + " : " + seconds;
+    
+}, 1000);
+
+</script>
+<style>
+    nav{
+        display: none;
+    }
+
+    body{
+        display: flex;
+        background-color: #111111;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #timerEvent{
+        color: white;
+        font-size: 4vw;
+    }
+    
+</style>
+{% endblock %}

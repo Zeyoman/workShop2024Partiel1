@@ -33,7 +33,7 @@ class FormEventController extends AbstractController
             $entityManager->persist($formEvent);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_form_event_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_timer', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('form_event/new.html.twig', [

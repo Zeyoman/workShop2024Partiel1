@@ -3,12 +3,13 @@
 {% block title %}FormEvent index{% endblock %}
 
 {% block body %}
-    <h1>FormEvent index</h1>
+    <h1>Liste des inscrits</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Nom / Prénom</th>
                 <th>Mail</th>
                 <th>SerialNumber</th>
                 <th>actions</th>
@@ -18,6 +19,7 @@
         {% for form_event in form_events %}
             <tr>
                 <td>{{ form_event.id }}</td>
+                <td>{{ form_event.FirstName }} {{ form_event.LastName }}</td>
                 <td>{{ form_event.mail }}</td>
                 <td>{{ form_event.SerialNumber }}</td>
                 <td>
@@ -34,4 +36,34 @@
     </table>
 
     <a href="{{ path('app_form_event_new') }}">Create new</a>
+
+<style>
+body{
+    margin-top: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+table.table {
+    margin: auto;
+    margin-top: 30px;
+}
+
+a {
+    padding: 10px;
+    background: white;
+    border-radius: 100px;
+}
+
+tr {
+    height: 50px;
+    background-color: white;
+}
+
+nav{
+    display: none;
+}
+</style>
 {% endblock %}

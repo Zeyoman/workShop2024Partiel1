@@ -3,9 +3,45 @@
 {% block title %}New FormEvent{% endblock %}
 
 {% block body %}
-    <h1>Create new FormEvent</h1>
+    <h1>Participer à l'évènement</h1>
 
     {{ include('form_event/_form.html.twig') }}
 
-    <a href="{{ path('app_form_event_index') }}">back to list</a>
+    <a id="link-back-event" href="https://www.nike.com/fr/">Revenir au site</a>
+
+<style>
+    nav{
+        display:none;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        background-color: #111111;
+    }
+
+    h1{
+        color: white;
+    }
+
+    form{
+        margin: 20px 0;
+    }
+
+    .btn{
+        margin-top: 15px;
+    }
+
+    ul {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 100px;
+        background-color: red;
+        list-style: none;
+    }
+</style>
 {% endblock %}
